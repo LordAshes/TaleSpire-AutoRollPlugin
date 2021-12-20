@@ -16,7 +16,7 @@ namespace LordAshes
         // Plugin info
         public const string Name = "Auto Roll Plug-In";
         public const string Guid = "org.lordashes.plugins.autoroll";
-        public const string Version = "1.0.2.0";
+        public const string Version = "1.0.3.0";
 
         private List<int> rollIds = new List<int>();
 
@@ -26,8 +26,10 @@ namespace LordAshes
         /// </summary>
         void Awake()
         {
-            // Not required but good idea to log this state for troubleshooting purpose
-            UnityEngine.Debug.Log("Auto Roll Plugin: Active. Dice added via talespire://dice prtotocol will be auto added and rolled.");
+            UnityEngine.Debug.Log("Auto Roll Plugin: Dice added via talespire://dice protocol will be auto added and rolled.");
+            UnityEngine.Debug.Log("Auto Roll Plugin: For example:");
+            UnityEngine.Debug.Log("Auto Roll Plugin: talespire://dice/Investigation:1D20+5");
+            UnityEngine.Debug.Log("Auto Roll Plugin: talespire://dice/Attack:1D20+5/2D6+3");
 
             callbackRollReady = AutoRoll;
             callbackRollResult = AutoHide;

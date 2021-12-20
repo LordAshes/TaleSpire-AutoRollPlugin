@@ -2,13 +2,7 @@
 using HarmonyLib;
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -37,14 +31,11 @@ namespace LordAshes
                     if (dgd.Name != "")
                     {
                         Debug.Log("Auto Roll Plugin: Spawning Dice");
-                        foreach (DiceDescriptor dd in dgd.Dice)
-                        {
-                            UIDiceTray dt = GameObject.FindObjectOfType<UIDiceTray>();
-                            bool saveSetting = (bool)PatchAssistant.GetField(dt, "_buttonHeld");
-                            PatchAssistant.SetField(dt, "_buttonHeld", true);
-                            dt.SpawnDice();
-                            PatchAssistant.SetField(dt, "_buttonHeld", saveSetting);
-                        }
+                        UIDiceTray dt = GameObject.FindObjectOfType<UIDiceTray>();
+                        bool saveSetting = (bool)PatchAssistant.GetField(dt, "_buttonHeld");
+                        PatchAssistant.SetField(dt, "_buttonHeld", true);
+                        dt.SpawnDice();
+                        PatchAssistant.SetField(dt, "_buttonHeld", saveSetting);
                     }
                     else
                     {
